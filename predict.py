@@ -23,6 +23,7 @@ def predict_img(net,
     img = torch.from_numpy(BasicDataset.preprocess(full_img, scale_factor))
 
     img = img.unsqueeze(0)
+    img = img[:, :3, :, :]
     img = img.to(device=device, dtype=torch.float32)
 
     with torch.no_grad():
